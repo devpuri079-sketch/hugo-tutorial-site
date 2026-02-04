@@ -2,7 +2,11 @@
 weight: 3
 ---
 
-# Hugo サイトを GitHub に push して GitHub Pages で公開する手順（baseURL 追加版）
+# Hugo サイトを GitHub に push して GitHub Pages で公開する手順
+
+---
+
+## この手順の目的
 
 このページでは、ローカルで作成した Hugo サイトを GitHub にアップロードし、  
 GitHub Pages を使ってインターネット上に公開するまでの手順を説明する。
