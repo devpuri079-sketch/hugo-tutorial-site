@@ -1,0 +1,157 @@
+baseURL = 'https://example.org/'
+languageCode = 'ja'
+title = 'Hugo Tutorial Site'
+theme = 'hugo-book'
+
+# コピーライト 画面下部に表示される
+#copyright = '[© CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)'
+
+# メニュー設定 画面右上に表示される
+[menu]
+[[menu.home]]
+  name = 'Documentation' # この項目が親メニュー（メインメニュー）となり、下のparentで指定されたサブメニューの親になる
+  pageRef = '/docs'
+  weight = 2
+
+[[menu.home]]
+  pageRef = '/docs/github/account-setup'
+  weight = 10
+  parent = 'Documentation'
+
+[[menu.home]]
+  name = 'Hugo'
+  pageRef = '/docs/hugo/install'
+  weight = 20
+  parent = 'Documentation'
+
+[[menu.home]]
+  name = 'Overview'
+  pageRef = '/hugo-overview/'
+  weight = 1
+
+[[menu.home]]
+  name = 'Github'
+  url = 'https://github.com'
+  weight = 3
+
+[params]
+  # （任意、省略時はlight）カラーテーマを設定します。light, dark, autoが選べます。
+  # autoの場合はブラウザやOSの設定に合わせて自動で切り替わります。
+  BookTheme = 'auto'
+  
+  # (Optional, default none) Controls table of contents visibility on right side of pages.
+  # Start and end levels can be controlled globally with markup.tableOfContents setting.
+  # You can also specify this parameter per page in front matter.
+  # ページ右側に目次（Table of Contents）を表示するかどうか。
+  # trueで表示。未設定だと目次が表示されない。
+  # BookToC = true
+
+  # (Optional, default favicon.png) Set the path to a favicon file.
+  # If the favicon is /static/favicon.png then the path would be favicon.png
+  # サイトのファビコン（ブラウザのタブに表示されるアイコン）のパスを指定。
+  # 省略時はfavicon.pngが使われる。
+  # BookFavicon = 'favicon.png'
+
+  # (Optional, default none) Set the path to a logo for the book.
+  # If the logo is /static/logo.png then the path would be logo.png
+  # サイトのロゴ画像のパスを指定。
+  # 省略時はロゴなし。
+  # BookLogo = 'logo.png'
+
+  # (Optional, default docs) Specify root page to render child pages as menu.
+  # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
+  # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
+  # 子ページをメニューとして表示する際のルートページを指定。
+  # デフォルトは'docs'。未設定だとdocs配下がメニュー化される。
+  # '*'で全セクションをメニュー化。
+  BookSection = 'docs'
+
+  # Here for backward compatibility, not required.
+  # It's here as an example how to use it with BookLastChangeLink or BookEditLink
+  # サイトのリポジトリURL。編集リンクや最終更新リンクのテンプレートで利用。
+  # 未設定でもサイト自体は動作する。
+  BookRepo = 'https://github.com/alex-shpak/hugo-book/'
+
+  # (Optional, default none) Set template for commit link for the page. Requires enableGitInfo.
+  # When set enabled 'Last Modified' and a link to the commit in the footer of the page.
+  # Param is executed as template using .Site, .Page and .GitInfo as context.
+  # ページの最終更新（コミット）へのリンクのテンプレート。enableGitInfoが必要。
+  # 未設定だとフッターに最終更新リンクが表示されない。
+  BookLastChangeLink = '{{ .Site.Params.BookRepo }}/commit/{{ .GitInfo.Hash }}'
+
+  # (Optional, default none) Set template for edit page link.
+  # When set enabled 'Edit this page' link in the footer of the page.
+  # Param is executed as template using .Site, .Page and .Path as context.
+  # ページ編集用リンクのテンプレート。フッターに「Edit this page」リンクが表示される。
+  # 未設定だと編集リンクが表示されない。
+  # BookEditLink = '{{ .Site.Params.BookRepo }}/edit/main/exampleSite/{{ .Path }}'
+
+  # (Optional, default 'January 2, 2006') Configure the date format used on the pages
+  # - In git information
+  # - In blog posts
+  # https://gohugo.io/functions/time/format/
+  # ページやGit情報、ブログ投稿で使う日付フォーマットを指定。
+  # 未設定だと 'January 2, 2006' 形式になる。
+  BookDateFormat = 'January 2, 2006'
+
+  # (Optional, default true) Enables search function with fuse.js.,
+  # Index is built on fly, therefore it might slowdown your website.
+  # Configuration for indexing can be adjusted in i18n folder per language.
+  # サイト内検索機能（fuse.js）を有効化。trueで有効。
+  # 未設定だと検索機能が使えない。
+  BookSearch = true
+
+  # (Optional, default true) Enables comments template on pages
+  # By default partials/docs/comments.html includes Disqus template
+  # See https://gohugo.io/content-management/comments/#configure-disqus
+  # Can be overwritten by same param in page frontmatter
+  # コメント機能（Disqusなど）を有効化。trueで有効。
+  # 未設定だとコメント欄が表示されない。
+  BookComments = true
+
+  # /!\ This is an experimental feature, might be removed or changed at any time
+  # (Optional, experimental, default false) Enables portable links and link checks in markdown pages.
+  # Portable links meant to work with text editors and let you write markdown without {{< relref >}} shortcode
+  # Hugo Book will print warning or error if page referenced in markdown does not exists.
+  # Possible values are false | 'warning' | 'error'
+  # Markdown内のリンクをポータブルにし、リンク切れチェックも行う実験的機能。
+  # 'warning'や'error'で警告・エラー表示。未設定だと通常のリンク動作。
+  BookPortableLinks = 'warning'
+
+  # /!\ This is an experimental feature, might be removed or changed at any time
+  # (Optional, experimental, default false)
+  # When set to 'preache' it enables a service worker that caches visited pages and resources for offline use.
+  # Possible values are false | true | 'precache'
+  # サイトのオフライン対応（Service Worker）を有効化。
+  # 'precache'で事前キャッシュ。未設定だとオフライン対応なし。
+  BookServiceWorker = 'precache'
+
+  # /!\ This is an experimental feature, might be removed or changed at any time
+  # (Optional, experimental, default false) Enables a drop-down menu for translations only if a translation is present.
+  # 翻訳が存在する場合のみ言語ドロップダウンを表示する実験的機能。
+  # falseで常に表示。未設定だとドロップダウンが常に表示される。
+  BookTranslatedOnly = false
+
+
+# URLの大文字小文字を区別したい場合はtrue。
+# falseや未設定だと自動的に小文字に変換される。
+disablePathToLower = true
+# ページの最終更新日や編集者など、Gitの情報を取得して表示する。
+# 未設定だと履歴や「最終更新」表示ができない。
+enableGitInfo = true
+
+# マークダウン内でHTMLタグを有効にする。
+# falseや未設定だとmermaidやkatexの埋め込みが動作しない。（図や数式が表示されない）。
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+
+# 目次に含める見出しの開始レベル。
+# 未設定だとh1が目次に含まれない。
+[markup.tableOfContents]
+  startLevel = 1
+
+# コードブロックのハイライトスタイル。
+# 未設定だとデフォルトの色合いになる。
+[markup.highlight]
+  style = 'base16-snazzy'
