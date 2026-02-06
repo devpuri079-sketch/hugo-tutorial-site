@@ -1,17 +1,17 @@
 ---
+title: インストール
 weight: 1
 ---
-## Hugoのインストール(Windowsの場合)
+# Hugoのインストール(Windowsの場合)
 
+## 1.インストール
 以下ページよりをダウンロードして、任意のフォルダに解凍<br/>
 https://github.com/gohugoio/hugo/releases
 ![インストール対象](image1.png)
 
-解凍先を環境変数を追加
+## 2.解凍先を環境変数を追加
 
-
-
-インストール確認
+## 3. インストール確認
 ``` bash
 hugo version
 

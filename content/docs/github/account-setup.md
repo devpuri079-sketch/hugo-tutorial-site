@@ -1,3 +1,7 @@
+---
+title: GitHubの設定
+weight: 3
+---
 ## GitHubの設定
 - Googleアカウントでサインイン
 - メールアドレスは秘匿アドレスの使用推奨(Keep my email addresses private をOn)
