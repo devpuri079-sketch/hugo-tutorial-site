@@ -14,14 +14,19 @@ theme = 'hugo-book'
   weight = 2
 
 [[menu.home]]
-  pageRef = '/docs/github/account-setup'
+  pageRef = '/docs/markdown/what-is-markdown'
   weight = 10
+  parent = 'Documentation'
+
+[[menu.home]]
+  pageRef = '/docs/github/account-setup'
+  weight = 20
   parent = 'Documentation'
 
 [[menu.home]]
   name = 'Hugo'
   pageRef = '/docs/hugo/install'
-  weight = 20
+  weight = 30
   parent = 'Documentation'
 
 [[menu.home]]
@@ -31,7 +36,7 @@ theme = 'hugo-book'
 
 [[menu.home]]
   name = 'Github'
-  url = 'https://github.com'
+  url = 'https://github.com/devpuri079-sketch/hugo-tutorial-site'
   weight = 3
 
 [params]
